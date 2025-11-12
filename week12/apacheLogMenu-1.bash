@@ -60,6 +60,7 @@ function frequentVisitors(){
 
 function suspiciousVisitors(){
 	cat "$logFile" | egrep -i -f ioc.txt | cut -d ' ' -f 1 | uniq -c
+}
 
 while :
 do
@@ -95,11 +96,11 @@ do
 		echo "Histogram"
 		histogram
 
-        elif [[ "userInput" == "5" ]]; then
+        elif [[ "$userInput" == "5" ]]; then
 		echo 'Displaying frequent visitors'
 		frequentVisitors
 	
-	elif [[ "userInput" == "6" ]]; then
+	elif [[ "$userInput" == "6" ]]; then
 		echo 'Displaying suspicious visitors'
 		suspiciousVisitors
 
